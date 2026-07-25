@@ -1,0 +1,63 @@
+Trong JavaScript, let và const đều được giới thiệu từ phiên bản ES6 (2015) để thay thế cho var. Chúng đều có block scope (phạm vi trong cặp ngoặc nhọn {}), nhưng khác nhau cốt lõi ở khả năng gán lại giá trị.
+
+Dưới đây là bảng so sánh nhanh và chi tiết cách phân biệt hai từ khóa này:
+
+1. Khả năng gán lại giá trị (Re-assignment)
+
+let: Cho phép bạn thay đổi giá trị của biến sau khi đã khai báo. Thường dùng cho các biến đếm, biến tổng, hoặc các giá trị sẽ thay đổi logic theo thời gian.
+
+let count = 10;
+count = 11; // Hợp lệ
+console.log(count); // 11
+
+
+const: Viết tắt của constant (hằng số). Một khi đã gán giá trị thì không thể gán lại giá trị khác. Nếu cố tình gán lại, bạn sẽ gặp lỗi TypeError.
+
+const pi = 3.14;
+pi = 3.15; // Lỗi: Assignment to constant variable.
+
+
+2. Khởi tạo giá trị ban đầu
+
+Với let, bạn có thể khai báo biến trước rồi gán giá trị sau. Nếu chưa gán, nó sẽ nhận giá trị undefined.
+
+let name;
+name = "Javascript"; // Hợp lệ
+
+Với const, bạn bắt buộc phải gán giá trị ngay khi khai báo. Nếu không sẽ bị lỗi cú pháp SyntaxError.
+
+const age; // Lỗi: Missing initializer in const declaration
+
+3. Lưu ý cực kỳ quan trọng về const với Object và Array
+Nhiều bạn mới học thường nhầm rằng const là làm cho giá trị "bất biến" (immutable). Điều này chỉ đúng với các kiểu dữ liệu nguyên thủy (Number, String, Boolean, null, undefined).
+
+Đối với Object và Array (kiểu dữ liệu tham chiếu), const chỉ ngăn bạn gán lại một Object/Array khác vào biến đó, chứ không ngăn bạn thay đổi nội dung (thuộc tính/phần tử) bên trong nó.
+
+Với Object:
+
+const user = { name: "Alice" };
+
+// Hợp lệ: Thay đổi thuộc tính bên trong
+user.name = "Bob"; 
+
+// Lỗi: Gán một object hoàn toàn mới
+user = { name: "Charlie" }; // TypeError
+
+Với Array:
+
+const numbers = [1, 2, 3];
+
+// Hợp lệ: Thêm/sửa phần tử
+numbers.push(4); // numbers bây giờ là [1, 2, 3, 4]
+
+// Lỗi: Gán một mảng mới
+numbers = [5, 6]; // TypeError
+
+Kinh nghiệm thực tế: Khi nào nên dùng gì?
+Một quy tắc chuẩn được hầu hết các lập trình viên JavaScript áp dụng hiện nay là:
+
+Mặc định luôn dùng const cho mọi khai báo.
+
+Chỉ chuyển sang dùng let khi bạn chắc chắn rằng biến đó sẽ cần phải gán lại giá trị (ví dụ: biến chạy trong vòng lặp for, biến flag bật/tắt, biến tính tổng tích lũy...).
+
+Tuyệt đối tránh dùng var để hạn chế các lỗi bất ngờ về phạm vi biến (scope).
