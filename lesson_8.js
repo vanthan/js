@@ -14,3 +14,21 @@ carts.forEach(function(item){
 
 console.log(total)
 
+// tim san pham theo id
+
+const products = [
+    {id:1, name:"Iphone", price: 100},
+    {id:2, name:"Xiaomi", price: 200},
+    {id:3, name:"Tablet", price: 300},
+    {id:4, name:"Laptop", price: 400}
+]
+
+const prodId = 2;
+let prod = {};
+products.forEach(function(item){
+    if(prodId === item.id){
+        prod = item;
+    }
+})
+
+console.log(prod);
