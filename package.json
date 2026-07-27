@@ -1,0 +1,22 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "learn typescript",
+  "main": "lesson_1.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanthan/js.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Thanvv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vanthan/js/issues"
+  },
+  "homepage": "https://github.com/vanthan/js#readme"
+}
